@@ -1,0 +1,133 @@
+/* Use a better default font */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #111;
+}
+
+/* Canvas fills screen */
+#gameCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-color: #000; /* fallback */
+}
+
+/* Overlay Screens */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay h1, .overlay h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+.overlay button {
+  padding: 10px 20px;
+  margin: 0.5rem;
+  font-size: 1rem;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.overlay button:hover {
+  background: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+/* HUD */
+#hud {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  font-size: 1.5rem;
+  pointer-events: none;
+}
+
+/* Timer (Top Left) */
+#timer {
+  flex: 1;
+  text-align: left;
+}
+
+/* Health (Top Center) */
+#health-bar {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  height: 25px;
+  width: 200px;
+  margin: 0 auto;
+  background-color: red;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#health-bar::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: green;
+  transition: width 0.2s ease;
+  z-index: -1;
+}
+
+#health-text {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-weight: bold;
+}
+
+/* Score (Top Right) */
+#score {
+  flex: 1;
+  text-align: right;
+}
