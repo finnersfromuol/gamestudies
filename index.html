@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinnVsComputer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Main Menu -->
+  <div id="menu" class="overlay">
+    <h1>FinnVsComputer</h1>
+    <button onclick="startGame()">Start Game</button>
+    <button onclick="showInstructions()">How To Play</button>
+    <button>Quit</button>
+  </div>
+
+  <!-- Instructions -->
+  <div id="instructions" class="overlay hidden">
+    <h2>How To Play</h2>
+    <p>WASD to move Finn.<br>
+    Mouse to aim.<br>
+    Left click to shoot.<br>
+    Press 'G' to toggle God Mode.<br>
+    Press 'Shift' to Dash.<br>
+    Survive 60 seconds per level!</p>
+    <button onclick="hideInstructions()">Back</button>
+  </div>
+
+  <!-- Level Complete -->
+  <div id="level-complete" class="overlay hidden">
+    <h2>Level Complete!</h2>
+    <button onclick="nextLevel()">Next Level</button>
+  </div>
+
+  <!-- Game Over -->
+  <div id="game-over" class="overlay hidden">
+    <h2>Game Over!</h2>
+    <p>Your Score: <span id="final-score"></span></p>
+    <button onclick="location.reload()">Retry</button>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud">
+    <div id="timer">🕒 60</div>
+    <div id="health-bar"><span id="health-text">100%</span></div>
+    <div id="score">🏆 0</div>
+  </div>
+
+  <canvas id="gameCanvas"></canvas>
+  <script src="game.js"></script>
+</body>
+</html>
